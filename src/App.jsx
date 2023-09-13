@@ -1,50 +1,13 @@
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 function App() {
 
   return (
     <>
       <Navbar/>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hellov</h1>
+      <Home/>
       <Footer/>
     </>
   )

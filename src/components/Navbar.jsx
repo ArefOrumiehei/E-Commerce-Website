@@ -15,11 +15,17 @@ const Navbar = () => {
     };
 
     useEffect(() => {
+        
         const handleScroll = () => {
-            if (window.scrollY > 45) {
+            const firstNavbarHeight = document.querySelector('.firstNav').offsetHeight;
+
+            if (window.scrollY > firstNavbarHeight) {
                 setIsSticky(true);
+                const secondNavbarHeight = document.querySelector('.secondNav').offsetHeight;
+                document.body.style.paddingTop = secondNavbarHeight + 'px';
             } else {
                 setIsSticky(false);
+                document.body.style.paddingTop = '0';
             }
         };
 
@@ -32,7 +38,7 @@ const Navbar = () => {
 
     return (
         <div className='navbar'>
-            <div className="firstNav">
+            <div className='firstNav'>
                 <div className="left"></div>
                 <div className="center">
                     <span>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
@@ -47,7 +53,7 @@ const Navbar = () => {
                             <ul>
                                 <li onClick={() => languageHandler('English')}>English</li>
                                 <li onClick={() => languageHandler('فارسی')}>فارسی</li>
-                                <li onClick={() => languageHandler('العربیه')}>العربیه</li>
+                                <li onClick={() => languageHandler('العربية')}>العربية</li>
                             </ul>
                         </div>}
                     </div>
