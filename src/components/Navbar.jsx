@@ -1,4 +1,4 @@
-import { IconChevronDown, IconChevronUp, IconHeart, IconSearch, IconShoppingCart, IconUser } from '@tabler/icons-react';
+import { IconBasket, IconChevronDown, IconChevronUp, IconHeart, IconLogin, IconSearch, IconShoppingCart, IconStar, IconUser } from '@tabler/icons-react';
 import '../scss/Navbar.scss';
 import { useEffect, useState } from 'react';
 
@@ -7,10 +7,7 @@ const Navbar = () => {
     const [isSticky, setIsSticky] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState('English');
-
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
+    const [userDropDown , setUserDropDown] = useState(false)
 
     const languageHandler = (language) => {
         setSelectedLanguage(language);
@@ -42,11 +39,11 @@ const Navbar = () => {
                     <span className='shopNow'>ShopNow</span>
                 </div>
                 <div className="right">
-                    <div className="language" onClick={toggleDropdown} >
+                    <div className="language" onClick={() => setIsDropdownOpen(!isDropdownOpen)} >
                         <span>{selectedLanguage}</span>
                         {isDropdownOpen ? <IconChevronUp/> : <IconChevronDown/>}
                         {isDropdownOpen && 
-                            <div className="languageDropdown">
+                        <div className="languageDropdown">
                             <ul>
                                 <li onClick={() => languageHandler('English')}>English</li>
                                 <li onClick={() => languageHandler('فارسی')}>فارسی</li>
@@ -85,9 +82,31 @@ const Navbar = () => {
                         <span>5</span>
                     </div>
 
-                    <div className="userIcon">
+                    <div className="userIcon" onClick={() => setUserDropDown(!userDropDown)}>
                         <IconUser size={25}/>
-                        {/* <span>3</span> */}
+                        {userDropDown &&
+                        <div className="userDropDown">
+                            <ul>
+                                <li className='dropDownItem'>
+                                    <IconUser/>
+                                    <span>Manage Account</span>
+                                </li>
+                                <li className='dropDownItem'>
+                                    <IconBasket/>
+                                    <span>My Order</span>
+                                </li>
+                                <li className='dropDownItem'>
+                                    <IconStar/>
+                                    <span>My Reviews</span>
+                                </li>
+                                <hr/>
+                                <li className='dropDownItem'>
+                                    <IconLogin/>
+                                    <span>Log Out</span>
+                                </li>
+                            </ul>
+                        </div>
+                        }
                     </div>
 
                 </div>
