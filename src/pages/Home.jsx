@@ -1,5 +1,5 @@
 //Icons
-import { IconChevronRight } from '@tabler/icons-react';
+import { IconChevronRight, IconHeadset, IconShieldDollar, IconTruckDelivery } from '@tabler/icons-react';
 
 //Styles
 import '../scss/Home.scss';
@@ -12,6 +12,7 @@ import BestSelling from '../components/BestSelling';
 import CountDownTimer from '../components/CountDownTimer';
 import ExploreProducts from '../components/ExploreProducts';
 import NewArrival from '../components/NewArrival';
+
 
 const Home = () => {
     return (
@@ -74,6 +75,31 @@ const Home = () => {
                 <ExploreProducts/>
                 <hr/>
                 <NewArrival/>
+                <div className="features">
+                    <div className="container">
+                        <div className="item">
+                            <div className="icon">
+                                <IconTruckDelivery size={60} stroke={1.5}/>
+                            </div>
+                            <span className="title">FREE AND FAST DELIVERY</span>
+                            <span className="titleDesc">Free delivery for all orders over $140</span>
+                        </div>
+                        <div className="item">
+                            <div className="icon">
+                                <IconHeadset size={60} stroke={1.5}/>
+                            </div>
+                            <span className="title">24/7 CUSTOMER SERVICE</span>
+                            <span className="titleDesc">Friendly 24/7 customer support</span>
+                        </div>
+                        <div className="item">
+                            <div className="icon">
+                                <IconShieldDollar size={60} stroke={1.5}/>
+                            </div>
+                            <span className="title">MONEY BACK GUARANTEE</span>
+                            <span className="titleDesc">We reurn money within 30 days</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

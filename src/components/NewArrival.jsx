@@ -36,7 +36,7 @@ const NewArrival = () => {
                         </div>
                     </div>
                     <div className="down">
-                        <div className="downLeft">
+                        <div className="left">
                             <img src="https://www.figma.com/file/rmoif9No80Wj0jfEp3Zcqo/image/e5659d572977438364a41d7e8c9d1e9a794d43ed" alt="" />
                             <div className="desc">
                                 <div className="title">Speakers</div>
@@ -44,7 +44,7 @@ const NewArrival = () => {
                                 <span className="shopNowBtn">Shop Now</span>
                             </div>
                         </div>
-                        <div className="downRight">
+                        <div className="right">
                             <img src="https://s3-alpha-sig.figma.com/img/1531/5cd1/5102562cf220504d288fa568eaa816dd?Expires=1695600000&Signature=CJoLMfCxI9-j2WKTJ~Sp8-2gtw1Gd1WCO3ypreZmpfL7L1OZuAytAonoMffYn4h9A~y5XpvINogeHW2oyx1JHU6iXqQp-rELSS9i~iI6EfYHGzOS8gzoY~QmKiorIO6s84fAq54ozfm4buVj8KBEInAlYHU5ASY4g4vulVG9Fz9PmfgdC4NxZMXFNPFESiERqi91hQy92lFsEk3nEqMQOHnb59gvfBqij~0gPchpW~4N8tp-33-XWuaw8Hy-w3T-TSO02aCKGhsthvLKjF0-s5etFp4wc7fL9-H5pCOzTjQzzhNmOVjLSCIUlEPhzjkYockvQJKHh5QwI4DwyD-jWA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="" />
                             <div className="desc">
                                 <div className="title">Perfume</div>

@@ -136,5 +136,53 @@
                 }
             }
         }
+
+        .features {
+            margin: 120px 100px;
+            border-radius: 5px;
+
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 80px;
+
+                .icon {
+                    background-color: #9292924c;
+                    border-radius: 50%;
+                    width: 80px;
+                    height: 80px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        color: #fff;
+                        background-color: #000;
+                        border-radius: 50%;
+                        padding: 7px;
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+                
+                .item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+
+                    .title {
+                        font-size: 22px;
+                        font-weight: 500;
+                    }
+
+                    .titleDesc {
+                        font-size: 18px;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
     }
 }
