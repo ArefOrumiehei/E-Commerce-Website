@@ -1,0 +1,88 @@
+.categories {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 100px;
+
+    .header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        .titleSection {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+
+            .title {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+
+                .subTitle {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    .pointer {
+                        width: 20px;
+                        height: 40px;
+                        background-color: orange;
+                        border-radius: 3px;
+                    }
+                    
+                    span {
+                        color: orange;
+                        font-size: 14px;
+                    }
+                }
+
+                .mainTitle {
+
+                    h4 {
+                        font-size: 30px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .mainContent {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 10px;
+            flex-wrap: wrap;
+            
+            .item {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                border: 2px solid #afafaf;
+                padding: 20px;
+                width: 140px;
+                height: 110px;
+                cursor: pointer;
+                gap: 5px;
+                transition: all .3s ease;
+                border-radius: 3px;
+
+                &:hover {
+                    background-color: orange;
+                }
+
+                span {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

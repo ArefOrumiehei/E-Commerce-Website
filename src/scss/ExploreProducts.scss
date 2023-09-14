@@ -1,0 +1,71 @@
+.exploreProducts {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 100px;
+
+    .header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        .titleSection {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+
+            .title {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+
+                .subTitle {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    .pointer {
+                        width: 20px;
+                        height: 40px;
+                        background-color: orange;
+                        border-radius: 3px;
+                    }
+                    
+                    span {
+                        color: orange;
+                        font-size: 14px;
+                    }
+                }
+
+                .mainTitle {
+
+                    h4 {
+                        font-size: 30px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    .main {
+
+    }
+
+    .footer {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+
+        button {
+            border: none;
+            padding: 10px 20px;
+            background-color: orange;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    }
+}
