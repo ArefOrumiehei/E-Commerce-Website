@@ -1,5 +1,9 @@
+//Icons
 import { IconChevronRight } from '@tabler/icons-react';
+
+//Styles
 import '../scss/Home.scss';
+import Slider from '../components/Slider';
 
 const Home = () => {
     return (
@@ -39,9 +43,7 @@ const Home = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="slider">
-                        slider
-                    </div>
+                    <Slider/>
                 </div>
             </div>
         </div>
