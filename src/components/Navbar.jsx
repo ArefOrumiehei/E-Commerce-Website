@@ -1,6 +1,11 @@
-import { IconBasket, IconChevronDown, IconChevronUp, IconHeart, IconLogin, IconSearch, IconShoppingCart, IconStar, IconUser } from '@tabler/icons-react';
-import '../scss/Navbar.scss';
 import { useEffect, useState } from 'react';
+
+//Icons
+import { IconBasket, IconChevronDown, IconChevronUp, IconHeart, IconLogin, IconSearch, IconShoppingCart, IconStar, IconUser } from '@tabler/icons-react';
+
+//Styles
+import '../scss/Navbar.scss';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -61,12 +66,16 @@ const Navbar = () => {
             </div>
             <div className={`secondNav ${isSticky ? 'sticky' : ''}`}>
                 <div className="left">
-                    <div className="logo">
-                        <h1>E-Commerce</h1>
-                    </div>
+                    <Link to='/' className='link'>
+                        <div className="logo">
+                            <h1>E-Commerce</h1>
+                        </div>
+                    </Link>
                     <div className="menu">
                         <ul className="menuList">
-                            <li className="listItem">Home</li>
+                            <Link to='/' className='link'>
+                                <li className="listItem">Home</li>
+                            </Link>
                             <li className="listItem">Products</li>
                             <li className="listItem">Contact</li>
                             <li className="listItem">About</li>
@@ -78,10 +87,13 @@ const Navbar = () => {
                         <input type="text" name="text" id="text" placeholder='What are you looking for?' />
                         <IconSearch/>
                     </div>   
-                    <div className="wishListIcon">
-                        <IconHeart size={25}/>
-                        <span>2</span>
-                    </div>
+                    
+                    <Link to='/wishlist' className='link'>
+                        <div className="wishListIcon">
+                            <IconHeart size={25}/>
+                            <span>2</span>
+                        </div>
+                    </Link>
 
                     <div className="cartIcon">
                         <IconShoppingCart size={25}/>

@@ -88,6 +88,14 @@
                 padding: 3px;
                 cursor: pointer; 
             }
+
+            .iconTrash {
+                background-color: #b9b9b9ce;
+                border-radius: 50%;
+                padding: 3px;
+                cursor: pointer;
+                display: none;
+            }
         }
 
         .discountPercentage {

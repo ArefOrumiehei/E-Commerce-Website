@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 0 100px;
+    
 
     .header {
         display: flex;
@@ -76,13 +77,13 @@
         flex-wrap: nowrap;
         overflow-x: auto;
         white-space: nowrap;
-        
+
         &::-webkit-scrollbar {
             display: none;
         }
 
         .productCard {
-            flex-basis: 20%;
+            flex-basis: 21%;
         }
     }
     

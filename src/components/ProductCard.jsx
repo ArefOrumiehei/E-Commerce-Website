@@ -8,7 +8,7 @@ import '../scss/ProductCard.scss';
 import ProductRating from './ProductRating';
 
 //Icons
-import { IconEye, IconHeart, IconHeartFilled } from '@tabler/icons-react';
+import { IconEye, IconHeart, IconHeartFilled, IconTrash } from '@tabler/icons-react';
 
 const ProductCard = ({product}) => {
 
@@ -41,6 +41,7 @@ const ProductCard = ({product}) => {
                         <IconHeart onClick={() => setIsLiked(!isLiked)} className='heart'/> 
                     }
                     <IconEye className='iconEye'/>
+                    <IconTrash className='iconTrash'/>
                 </div>
                 <span className="discountPercentage">-{randomDiscount}%</span>
                 <span className="newProduct">New</span>

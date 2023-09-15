@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 //Icons
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
@@ -15,19 +15,15 @@ import { ProductsContext } from "../contexts/ProductsContextProvider";
 
 const AmazingSale = () => {
 
-    const [scrollPosition, setScrollPosition] = useState(0);
-
     const products = useContext(ProductsContext)
 
 
     const handleScrollLeft = () => {
-        const newScrollPosition = scrollPosition - 1;
-        setScrollPosition(newScrollPosition);
+        document.querySelector('.main').scrollLeft -= 230
     };
     
     const handleScrollRight = () => {
-        const newScrollPosition = scrollPosition + 1;
-        setScrollPosition(newScrollPosition);
+        document.querySelector('.main').scrollLeft += 230
     };
     
 
