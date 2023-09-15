@@ -10,13 +10,16 @@ import './index.css'
 
 //Contexts
 import ProductsContextProvider from './contexts/ProductsContextProvider.jsx'
+import FavoritesContextProvider from './contexts/FavoritesContextProvider.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ProductsContextProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ProductsContextProvider>
+    <FavoritesContextProvider>
+      <ProductsContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ProductsContextProvider>
+    </FavoritesContextProvider>
   </React.StrictMode>,
 )

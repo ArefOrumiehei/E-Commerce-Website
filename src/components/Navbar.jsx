@@ -1,13 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 //Icons
 import { IconBasket, IconChevronDown, IconChevronUp, IconHeart, IconLogin, IconSearch, IconShoppingCart, IconStar, IconUser } from '@tabler/icons-react';
 
 //Styles
 import '../scss/Navbar.scss';
-import { Link } from 'react-router-dom';
+
+//Contexts
+import { FavoritesContext } from '../contexts/FavoritesContextProvider';
 
 const Navbar = () => {
+
+    const {favoritesState} = useContext(FavoritesContext)
+
 
     const [isSticky, setIsSticky] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -88,10 +94,10 @@ const Navbar = () => {
                         <IconSearch/>
                     </div>   
                     
-                    <Link to='/wishlist' className='link'>
+                    <Link to='/favorites' className='link'>
                         <div className="wishListIcon">
                             <IconHeart size={25}/>
-                            <span>2</span>
+                            {favoritesState.totalFavorites !== 0 && <span>{favoritesState.totalFavorites}</span>}
                         </div>
                     </Link>
 

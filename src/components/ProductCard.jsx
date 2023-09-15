@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types'
 
 //Styles
@@ -10,7 +10,14 @@ import ProductRating from './ProductRating';
 //Icons
 import { IconEye, IconHeart, IconHeartFilled, IconTrash } from '@tabler/icons-react';
 
+//Contexts
+import { FavoritesContext } from '../contexts/FavoritesContextProvider';
+
 const ProductCard = ({product}) => {
+
+    const {favoritesState , favoritesDispatch} = useContext(FavoritesContext)
+
+    console.log(favoritesState);
 
     const [isLiked , setIsLiked] = useState(false)
     const [randomDiscount, setRandomDiscount] = useState(Math.floor(Math.random() * (60 - 5 + 1) + 5));
@@ -30,18 +37,29 @@ const ProductCard = ({product}) => {
     }
 
 
+    const filledHeartHandler = () => {
+        setIsLiked(!isLiked)
+        favoritesDispatch({type : 'DELETE' , payload : product})
+    }
+
+    const heartHandler = () => {
+        setIsLiked(!isLiked)
+        favoritesDispatch({type : 'ADD' , payload : product})
+    }
+
+
     return (
         <div className={`productCard ${showOnHover ? 'showOnHover' : ''}`} onMouseEnter={() => setShowOnHover(true)} onMouseLeave={() => setShowOnHover(false)}>
             <div className="imgContent">
                 <img src={product.image} alt="" />
                 <div className="icons">
                     {isLiked ? 
-                        <IconHeartFilled onClick={() => setIsLiked(!isLiked)} className='filledHeart' /> 
+                        <IconHeartFilled onClick={filledHeartHandler} className='filledHeart' /> 
                         : 
-                        <IconHeart onClick={() => setIsLiked(!isLiked)} className='heart'/> 
+                        <IconHeart onClick={heartHandler} className='heart'/> 
                     }
-                    <IconEye className='iconEye'/>
-                    <IconTrash className='iconTrash'/>
+                    <IconEye className='iconEye'/>        
+                    <IconTrash className='iconTrash' onClick={() => favoritesDispatch({type : 'DELETE' , payload : product})}/>
                 </div>
                 <span className="discountPercentage">-{randomDiscount}%</span>
                 <span className="newProduct">New</span>

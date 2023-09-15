@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import WishList from "./pages/WishList";
+import Favorites from "./pages/Favorites";
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/wishlist" element={<WishList/>} />
+        <Route path="/favorites" element={<Favorites/>} />
       </Routes>
       <Footer/>
     </>

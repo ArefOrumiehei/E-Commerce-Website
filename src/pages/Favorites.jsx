@@ -1,28 +1,40 @@
 import { useContext } from 'react';
 
 //Styles
-import '../scss/WishList.scss';
+import '../scss/Favorites.scss';
 
 //Contexts
 import { ProductsContext } from '../contexts/ProductsContextProvider';
+import { FavoritesContext } from '../contexts/FavoritesContextProvider';
 
 //Components
 import ProductCard from '../components/ProductCard'
 
-const WishList = () => {
+const Favorites = () => {
 
     const products = useContext(ProductsContext)
+    const {favoritesState} = useContext(FavoritesContext)
+
 
     return (
-        <div className='wishList'>
+        <div className='favorites'>
             <div className="container">
-                <div className="wishListSection">
+                <div className="favoritesSection">
                     <div className="header">
-                        <span className="title">Wishlist (4)</span>
+                        <span className="title">Favorites ({favoritesState.totalFavorites})</span>
                         <button className='moveAllBtn'>Move All To Cart</button>
                     </div>
                     <div className="main">
-                        {products.slice(10 , 15).map(product => <ProductCard product={product} key={product.id} />)}
+                        {favoritesState.favoriteProducts.length > 0 ? (
+                            favoritesState.favoriteProducts.map(product => (
+                                <ProductCard product={product} key={product.id} />
+                            ))
+                        ) : (
+                            <div className="emptyFavorites">
+                                <h1 className='emptyText'>Your Favorites is Empty!</h1>
+                                <span className="goToShopBtn">Go to Shop</span>
+                            </div>
+                        )}
                     </div>
                 </div>
                 <hr/>
@@ -43,4 +55,4 @@ const WishList = () => {
     );
 };
 
-export default WishList;
+export default Favorites;
