@@ -2,7 +2,7 @@
     margin: 50px 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     padding: 0 100px;
 
     .header {
@@ -51,7 +51,30 @@
     }
 
     .main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
 
+        .productCard {
+            flex-basis: 20%;
+
+            .discountPercentage , .discountPrice {
+                display: none;
+            }
+
+            .newProduct {
+                display: block;
+            }
+
+            .price {
+                text-decoration: none;
+                color: orange;
+                font-weight: 600;
+                opacity: 1;
+            }
+        }
     }
 
     .footer {

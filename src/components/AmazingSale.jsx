@@ -1,3 +1,5 @@
+import { useContext, useState } from "react";
+
 //Icons
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 
@@ -6,8 +8,29 @@ import '../scss/AmazingSale.scss'
 
 //Components
 import CountDownTimer from "./CountDownTimer";
+import ProductCard from "./ProductCard";
+
+//Contexts
+import { ProductsContext } from "../contexts/ProductsContextProvider";
 
 const AmazingSale = () => {
+
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    const products = useContext(ProductsContext)
+
+
+    const handleScrollLeft = () => {
+        const newScrollPosition = scrollPosition - 1;
+        setScrollPosition(newScrollPosition);
+    };
+    
+    const handleScrollRight = () => {
+        const newScrollPosition = scrollPosition + 1;
+        setScrollPosition(newScrollPosition);
+    };
+    
+
     return (
         <div className="amazingSale">
             <div className="header">
@@ -26,11 +49,13 @@ const AmazingSale = () => {
                     </div>
                 </div>
                 <div className="arrows">
-                    <IconArrowLeft/>
-                    <IconArrowRight/>
+                    <IconArrowLeft onClick={handleScrollLeft}/>
+                    <IconArrowRight onClick={handleScrollRight}/>
                 </div>
             </div>
-            <div className="main"></div>
+            <div className="main">
+                {products.slice(0 , 7).map(product => <ProductCard key={product.id} product={product} />)}
+            </div>
             <div className="footer">
                 <button>View All Products</button>
             </div>

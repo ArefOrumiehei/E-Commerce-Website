@@ -1,0 +1,22 @@
+.productRating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .ratingStars {
+
+        svg {
+            color: gold;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .numReviews {
+        opacity: .7;
+        font-size: 15px;
+        display: flex;
+        align-self: flex-start;
+        font-weight: 500;
+    }
+}
