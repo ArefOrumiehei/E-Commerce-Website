@@ -12,12 +12,12 @@ import { IconEye, IconHeart, IconHeartFilled, IconTrash } from '@tabler/icons-re
 
 //Contexts
 import { FavoritesContext } from '../contexts/FavoritesContextProvider';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({product}) => {
 
-    const {favoritesState , favoritesDispatch} = useContext(FavoritesContext)
+    const {favoritesDispatch} = useContext(FavoritesContext)
 
-    console.log(favoritesState);
 
     const [isLiked , setIsLiked] = useState(false)
     const [randomDiscount, setRandomDiscount] = useState(Math.floor(Math.random() * (60 - 5 + 1) + 5));
@@ -58,7 +58,9 @@ const ProductCard = ({product}) => {
                         : 
                         <IconHeart onClick={heartHandler} className='heart'/> 
                     }
-                    <IconEye className='iconEye'/>        
+                    <Link to={`/products/${product.id}`} className='link'>
+                        <IconEye className='iconEye'/>
+                    </Link>   
                     <IconTrash className='iconTrash' onClick={() => favoritesDispatch({type : 'DELETE' , payload : product})}/>
                 </div>
                 <span className="discountPercentage">-{randomDiscount}%</span>

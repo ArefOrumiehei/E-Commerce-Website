@@ -1,0 +1,355 @@
+.productDetails {
+
+    .container {
+
+        .breadcrumb {
+            
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+
+            .imagesContainer {
+                flex: 1;
+                display: flex;
+                // align-items: center;
+                justify-content: center;
+                gap: 30px;
+
+                .miniImages {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-direction: column;
+                    flex-shrink: 0;
+                    width: 90px;
+                    height: 90px;
+                    // padding: 12px 25px 12px 24px;
+                    gap: 30px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .mainImage {
+                    width: 400px;
+                    height: 400px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+            .details {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                
+                .descSection {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 20px;
+
+
+
+                    .title {
+                        font-size: 22px;
+                        font-weight: 500;
+                    }
+
+                    .productState {
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 10px;
+
+                        .rate {
+                            padding-right: 10px;
+                        }
+
+                        .stock {
+                            border-left: 1.5px solid #000;
+                            padding-left: 20px;
+                            color: limegreen;
+                            font-style: 14px;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .price {
+                        font-size: 26px;
+                        font-weight: 600;
+                    }
+
+                    .desc {
+                        width: 500px;
+                        font-weight: 400;
+                        line-height: 21px;
+                        white-space: wrap;
+                        font-size: 1.1rem;
+                    }
+                }
+
+                hr {
+                    border: .5px solid #000;
+                    opacity: .2;
+                    margin: 30px 0;
+                }
+
+                .options {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 20px;
+                    
+
+                    .colors {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        
+                        span {
+                            margin-right: 10px;
+                            font-size: 18px;
+                        }
+
+                        
+                            
+                        .color1 {
+                            background-color: yellow;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50%;
+                            cursor: pointer;
+                            
+                            &.active {
+                                border: 1.5px solid #000;
+                            }
+                        }
+                        
+
+                        .color2 {
+                            background-color: blue;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50%;
+                            cursor: pointer;
+
+                            &.active {
+                                border: 1.5px solid #000;
+                            }
+                        }
+                    }
+
+                    .sizes {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        span {
+                            margin-right: 10px;
+                            font-size: 18px;
+                        }
+
+                        .sizeOption {
+                            border: 1.5px solid orange;
+                            color: #000;
+                            width: 32px;
+                            height: 32px;
+                            border-radius: 5px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 2px;
+                            cursor: pointer;
+                            font-weight: 500;
+
+                            &.active {
+                                background-color: orange;
+                                border: 1.4px solid orange;
+                                color: #000;
+                            }
+                        }
+                    }
+
+                    .addSection {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 50px;
+
+                        .count {
+                            display: flex;
+                            align-items: center;
+                            border-radius: 5px;
+                            overflow: hidden;
+                            border: 1px solid #000;
+                            font-weight: 500;
+                            
+                            
+                            .minus {
+                                border: none;
+                                background-color: transparent;
+                                display: flex;
+                                align-items: center;
+                                padding: 5.8px;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background-color: orange;
+                                }
+                            }
+                            
+                            .counter {
+                                padding: 5px 15px;
+                                border-left: 1px solid #000;
+                                border-right: 1px solid #000;
+                            }
+                            
+                            .plus {
+                                border: none;
+                                background-color: transparent;
+                                display: flex;
+                                align-items: center;
+                                padding: 5.8px;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background-color: orange;
+                                }
+                            }
+                        }
+
+                        .addToCart {
+                        
+
+                            button {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border: none;
+                                background-color: orange;
+                                padding: 10px 30px;
+                                border-radius: 5px;
+                                font-weight: 500;
+                                cursor: pointer;
+                            }
+                        }
+
+                        .addToFavorites {
+                            
+
+                            button {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border: none;
+                                background-color: transparent;
+                                padding: 5px;
+                                border-radius: 5px;
+                                font-weight: 500;
+                                cursor: pointer;
+                                border: 1.5px solid red;
+                                border-radius: 5px;
+
+
+                                &.filledHeart , &.heart {
+                                    color: red;
+                                }
+                            }
+                        }
+
+                    }
+                    .features {
+                        display: flex;
+                        flex-direction: column;
+                        border-radius: 10px;
+                        gap: 20px;
+                        background-color: #eee;
+                        padding: 10px;
+                        margin-top: 30px;
+
+
+                        .item {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            
+                            svg {
+                                width: 50px;
+                                height: 50px;
+                            }
+
+                            .text {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+
+                                .title {
+                                    font-weight: 500;
+                                    font-size: 18px;
+                                }
+
+                                .desc {
+                                    font-weight: 400;
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .relatedProducts {
+
+            .header {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+        
+                .titleSection {
+                    display: flex;
+                    align-items: center;
+                    gap: 50px;
+        
+                    .title {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+        
+        
+                        .subTitle {
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+        
+                            .pointer {
+                                width: 20px;
+                                height: 40px;
+                                background-color: orange;
+                                border-radius: 3px;
+                            }
+                            
+                            span {
+                                color: orange;
+                                font-size: 18px;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+        
+                
+            }
+        }
+    }
+}

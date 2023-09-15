@@ -12,6 +12,9 @@
     border-radius: 5px;
     padding: 10px;
     
+    .link {
+        color: inherit;
+    }
 
     .imgContent::before {
         opacity: 0;
