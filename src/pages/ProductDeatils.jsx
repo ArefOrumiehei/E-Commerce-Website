@@ -1,5 +1,5 @@
 import { useContext , useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 //Styles
@@ -14,6 +14,7 @@ import { FavoritesContext } from '../contexts/FavoritesContextProvider';
 
 //Components
 import ProductRating from '../components/ProductRating';
+import ProductCard from '../components/ProductCard'
 
 const ProductDeatils = () => {
 
@@ -42,11 +43,24 @@ const ProductDeatils = () => {
         favoritesDispatch({type : 'ADD' , payload : product})
     }
 
+    const shorten = (title) => {
+        let splitedTitle = title.split(' ')
+        let newTitle = `${splitedTitle[0]} ${splitedTitle[1]} ${splitedTitle[2]}`
+    
+        return newTitle
+    }
+
 
     return (
         <div className='productDetails'>
             <div className="container">
-                <div className="breadcrumb"></div>
+                {product && 
+                <div className="breadcrumb">
+                    <div className="content">
+                        <Link to='/' className='link'>Home</Link> / <Link to='/products' className='link'>Products</Link> / <span>{shorten(product.title)}</span>
+                    </div>
+                </div>
+                }
                 {product ? (
                 <div className="product">
                     <div className="imagesContainer">
@@ -76,6 +90,7 @@ const ProductDeatils = () => {
                                 <span>Colors :</span>
                                 <div className={`color1 ${activeColor === 'color1' ? 'active' : ''}`} onClick={() => setActiveColor('color1')}/>
                                 <div className={`color2 ${activeColor === 'color2' ? 'active' : ''}`} onClick={() => setActiveColor('color2')}/>
+                                <div className={`color3 ${activeColor === 'color3' ? 'active' : ''}`} onClick={() => setActiveColor('color3')}/>
                             </div>
                             <div className="sizes">
                                 <span>Size :</span>
@@ -120,7 +135,10 @@ const ProductDeatils = () => {
                             </div>
                         </div>
                     </div>
-                </div>) : <h1>Loading ...</h1>}
+                </div>) : (
+                        <h1 className='loading'>Please wait...</h1>
+                    )}
+                <hr/>
                 <div className="relatedProducts">
                     <div className="header">
                         <div className="titleSection">
@@ -133,7 +151,7 @@ const ProductDeatils = () => {
                         </div>
                     </div>
                     <div className="main">
-                        
+                        {products.slice(6 , 10).map(product => <ProductCard key={product.id} product={product} />)}
                     </div>
                 </div>
             </div>
