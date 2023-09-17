@@ -21,17 +21,15 @@ const ProductCard = ({product}) => {
 
     const [isLiked , setIsLiked] = useState(false)
     const [randomDiscount, setRandomDiscount] = useState(Math.floor(Math.random() * (60 - 5 + 1) + 5));
-    const [showOnHover, setShowOnHover] = useState(false);
 
     useEffect(() => {
         setRandomDiscount(Math.floor(Math.random() * (60 - 5 + 1) + 5));
-        setShowOnHover(false);
     }, [product]);
 
 
     const shorten = (title) => {
         let splitedTitle = title.split(' ')
-        let newTitle = `${splitedTitle[0]} ${splitedTitle[1]} ${splitedTitle[2]}`
+        let newTitle = `${splitedTitle[5]} ${splitedTitle[1]} ${splitedTitle[2]}`
     
         return newTitle
     }
@@ -49,7 +47,7 @@ const ProductCard = ({product}) => {
 
 
     return (
-        <div className={`productCard ${showOnHover ? 'showOnHover' : ''}`} onMouseEnter={() => setShowOnHover(true)} onMouseLeave={() => setShowOnHover(false)}>
+        <div className='productCard'>
             <div className="imgContent">
                 <img src={product.image} alt="" />
                 <div className="icons">
@@ -74,6 +72,12 @@ const ProductCard = ({product}) => {
                 </div>
                 <div className="rating">
                     <ProductRating rating={product.rating.rate} numReviews={product.rating.count}/>
+                </div>
+                <div className="addToCart">
+                    <Link to={`/products/${product.id}`} className='link'>
+                        <button className='detailsBtn'>Details</button>
+                    </Link>
+                    <button className='addToCartBtn'>Add To Cart</button>
                 </div>
             </div>
         </div>

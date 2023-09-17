@@ -50,7 +50,7 @@ const AmazingSale = () => {
                 </div>
             </div>
             <div className="main">
-                {products.slice(0 , 7).map(product => <ProductCard key={product.id} product={product} />)}
+                {products.slice(0 , 10).map(product => <ProductCard key={product.id} product={product} />)}
             </div>
             <div className="footer">
                 <button>View All Products</button>

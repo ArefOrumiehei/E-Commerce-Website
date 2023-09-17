@@ -1,0 +1,54 @@
+.notFound {
+
+    .container {
+        margin: 50px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        padding: 0 100px;
+
+        .breadcrumb {
+
+            .content {
+
+                .link {
+                    text-decoration: none;
+                    color: gray;
+                }
+
+                span {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .mainContent {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            
+            .title {
+                font-size: 100px;
+                font-weight: 500;
+                letter-spacing: 3px;
+            }
+
+            .desc {
+                font-size: 18px;
+            }
+
+            button {
+                background-color: orange;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-weight: 500;
+                margin: 50px 0;
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import ProductDeatils from "./pages/ProductDeatils";
+import NotFound from "./pages/NotFound";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/favorites" element={<Favorites/>} />
         <Route path="/products/:id" element={<ProductDeatils/>} />
+        <Route path="/*" element={<NotFound/>} />
       </Routes>
       <Footer/>
     </>
