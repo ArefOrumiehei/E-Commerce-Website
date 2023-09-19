@@ -9,10 +9,14 @@ import '../scss/Navbar.scss';
 
 //Contexts
 import { FavoritesContext } from '../contexts/FavoritesContextProvider';
+import { CartContext } from '../contexts/CartContextProvider';
 
 const Navbar = () => {
 
     const {favoritesState} = useContext(FavoritesContext)
+    const {cartState} = useContext(CartContext)
+
+    console.log(favoritesState);
 
 
     const [isSticky, setIsSticky] = useState(false);
@@ -103,7 +107,7 @@ const Navbar = () => {
 
                     <div className="cartIcon">
                         <IconShoppingCart size={25}/>
-                        <span>5</span>
+                        {cartState.productsCounter !== 0 && <span>{cartState.productsCounter}</span>}
                     </div>
 
                     <div className="userIcon" onClick={() => setUserDropDown(!userDropDown)}>

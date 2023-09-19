@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 //Styles
 import '../scss/ProductCard.scss';
@@ -8,16 +9,18 @@ import '../scss/ProductCard.scss';
 import ProductRating from './ProductRating';
 
 //Icons
-import { IconEye, IconHeart, IconHeartFilled, IconTrash } from '@tabler/icons-react';
+import { IconEye, IconHeart, IconHeartFilled, IconMinus, IconPlus, IconTrash } from '@tabler/icons-react';
 
 //Contexts
 import { FavoritesContext } from '../contexts/FavoritesContextProvider';
-import { Link } from 'react-router-dom';
+import { CartContext } from '../contexts/CartContextProvider';
 
 const ProductCard = ({product}) => {
 
     const {favoritesDispatch} = useContext(FavoritesContext)
+    const {cartState ,cartDispatch} = useContext(CartContext)
 
+    console.log(cartState);
 
     const [isLiked , setIsLiked] = useState(false)
     const [randomDiscount, setRandomDiscount] = useState(Math.floor(Math.random() * (60 - 5 + 1) + 5));
@@ -43,6 +46,20 @@ const ProductCard = ({product}) => {
     const heartHandler = () => {
         setIsLiked(!isLiked)
         favoritesDispatch({type : 'ADD' , payload : product})
+    }
+
+    const quantityCount = (state , id) => {
+        const index = state.selectedProducts.findIndex((item) => item.id === id)
+        if (index === -1) {
+            return false
+        } else {
+            return state.selectedProducts[index].quantity
+        }
+    }
+
+    const isInCart = (state , id) => {
+        const result = !!state.selectedProducts.find((item) => item.id === id)
+        return result
     }
 
 
@@ -77,7 +94,23 @@ const ProductCard = ({product}) => {
                     <Link to={`/products/${product.id}`} className='link'>
                         <button className='detailsBtn'>Details</button>
                     </Link>
-                    <button className='addToCartBtn'>Add To Cart</button>
+                    <div className="addToCartButtons">
+                        {quantityCount(cartState , product.id) === 1 &&  
+                            <button className='trashBtn' onClick={() => cartDispatch({type : 'DELETE' , payload : product})}><IconTrash/></button>
+                        }
+
+                        {quantityCount(cartState , product.id) > 1 &&  
+                            <button className='minusBtn' onClick={() => cartDispatch({type : 'DECREASE' , payload : product})}><IconMinus/></button>
+                        }
+
+                        {quantityCount(cartState , product.id) > 0 && <span className='counter'>{quantityCount(cartState , product.id)}</span>}
+
+                        {isInCart(cartState , product.id) ? 
+                            <button className='plusBtn' onClick={() => cartDispatch({type : 'INCREASE' , payload : product})}><IconPlus/></button>
+                            :
+                            <button className='addToCartBtn' onClick={() => cartDispatch({type : 'ADD' , payload : product})}>Add To Cart</button>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
