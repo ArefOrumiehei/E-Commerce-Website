@@ -105,10 +105,12 @@ const Navbar = () => {
                         </div>
                     </Link>
 
-                    <div className="cartIcon">
-                        <IconShoppingCart size={25}/>
-                        {cartState.productsCounter !== 0 && <span>{cartState.productsCounter}</span>}
-                    </div>
+                    <Link to='/cart' className='link'>
+                        <div className="cartIcon">
+                            <IconShoppingCart size={25}/>
+                            {cartState.productsCounter !== 0 && <span>{cartState.productsCounter}</span>}
+                        </div>
+                    </Link>
 
                     <div className="userIcon" onClick={() => setUserDropDown(!userDropDown)}>
                         <IconUser size={25}/>

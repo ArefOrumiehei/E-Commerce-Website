@@ -15,10 +15,12 @@ import { FavoritesContext } from '../contexts/FavoritesContextProvider';
 //Components
 import ProductRating from '../components/ProductRating';
 import ProductCard from '../components/ProductCard'
+import { CartContext } from '../contexts/CartContextProvider';
 
 const ProductDeatils = () => {
 
     const {favoritesDispatch} = useContext(FavoritesContext)
+    const {cartState , cartDispatch} = useContext(CartContext)
 
 
     const [activeColor, setActiveColor] = useState('color1');
@@ -102,12 +104,12 @@ const ProductDeatils = () => {
                             </div>
                             <div className="addSection">
                                 <div className="count">
-                                    <button className="minus"><IconMinus/></button>
-                                    <div className="counter">1</div>
-                                    <button className="plus"><IconPlus/></button>
+                                    <button className="minus" onClick={() => cartDispatch({type : "DECREASE" , payload : product})}><IconMinus/></button>
+                                    <div className="counter">{cartState.productsCounter === 0 ? 1 : cartState.productsCounter}</div>
+                                    <button className="plus" onClick={() => cartDispatch({type : "INCREASE" , payload : product})}><IconPlus/></button>
                                 </div>
                                 <div className="addToCart">
-                                    <button>Buy Now</button>
+                                    <button onClick={() => cartDispatch({type : 'ADD' , payload : product})}>Buy Now</button>
                                 </div>
                                 <div className="addToFavorites">
                                     {isLiked ? 
