@@ -49,7 +49,7 @@ const Cart = () => {
                     </div>
                     <div className="cartPay">
                         <div className="coupon">
-                            <input type="text" name="" id="" />
+                            <input type="text" name="" id="" placeholder='Coupon Code' />
                             <button>Apply Coupon</button>
                         </div>
                         <div className="totalDetails">
