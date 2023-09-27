@@ -9,8 +9,68 @@
         .main {
 
             .cartTabel {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+
+                table {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 40px;
+                    border-collapse: collapse;
 
 
+                    thead {
+                        
+
+                        tr {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: 250px;
+                            
+                            
+                            th {
+                                font-weight: 400;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 40px;
+
+                        tr {
+                            display: flex;
+                            align-items: center;
+                            gap: 250px;
+                            
+                            .productCol {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+
+                                .productImg {
+                                    width: 150px;
+                                    height: 100px;
+                                }
+                            }
+                            td {
+
+
+                                input {
+                                    width: 40px;
+                                    border: 1px solid #000;
+                                    border-radius: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             .cartBtns {

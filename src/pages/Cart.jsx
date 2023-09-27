@@ -1,9 +1,18 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 //Styles
 import '../scss/Cart.scss';
 
+//Contexts
+import { CartContext } from '../contexts/CartContextProvider';
+
 const Cart = () => {
+
+    const { cartState } = useContext(CartContext)
+
+    console.log(cartState);
+
     return (
         <div className='cart'>
             <div className="container">
@@ -23,11 +32,11 @@ const Cart = () => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <img src="" alt="" />
-                                        <span>Product 1</span>
+                                    <td className='productCol'>
+                                        <img className='productImg' src={cartState.selectedProducts[0].image} alt="" />
+                                        <span>{cartState.selectedProducts[0].title}</span>
                                     </td>
-                                    <td>$10.00</td>
+                                    <td>${cartState.selectedProducts[0].price}</td>
                                     <td><input type="number" value='' name="" id="quantity" /></td>
                                     <td>$20.00</td>
                                 </tr>
